@@ -19,14 +19,13 @@ const server = http.createServer((req, res) => {
             const bodyParsed = Buffer.concat(body).toString().split('=')[1];
             console.log(bodyParsed);
         })
-        fs.writeFileSync('new.txt', 'Dummy text added');
-        console.log(req.body);
+        
         res.statusCode = 302;
         res.setHeader('Location', '/');
 
         return res.end();
-    };
-    {
+    }
+    else {
         res.setHeader('Content-type', 'text/html');
         res.write('<h1>Thank you for your search we are looking for your search <br> Until then enjoy Our minimalist service..I hope you understood</h1>')
         return res.end();
